@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Cairo', system-ui, sans-serif;
+    --font-body: 'IBM Plex Sans Arabic', 'Cairo', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  html {
+    font-family: var(--font-body);
+    background-color: #030e29;
+    color: #e4f1ff;
+    direction: rtl;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-tabular {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Deep midnight sapphire command-wall background with fine cartographic grid matching reference */
+.syria-command-bg {
+  background-color: #030e29;
+  background-image:
+    radial-gradient(ellipse 62% 58% at 50% 47%, rgba(16, 68, 152, 0.52) 0%, rgba(7, 29, 76, 0.86) 54%, rgba(2, 11, 34, 0.99) 100%),
+    linear-gradient(to right, rgba(46, 136, 255, 0.075) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(46, 136, 255, 0.075) 1px, transparent 1px);
+  background-size: 100% 100%, 28px 28px, 28px 28px;
+}
+
+/* Exact reference panel title bar: translucent navy strip + 4 ultra-thin crisp corner L-brackets */
+.hud-title-bar {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-width: 172px;
+  padding: 0.3rem 0.9rem;
+  background: linear-gradient(
+    90deg,
+    rgba(22, 68, 138, 0.18) 0%,
+    rgba(26, 78, 154, 0.42) 55%,
+    rgba(22, 68, 138, 0.28) 100%
+  );
+}
+
+.hud-title-bar::before,
+.hud-title-bar::after,
+.hud-title-bar .bracket-tl,
+.hud-title-bar .bracket-br {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  pointer-events: none;
+}
+
+.hud-title-bar::before {
+  top: 0;
+  right: 0;
+  border-top: 1px solid rgba(162, 218, 255, 0.72);
+  border-right: 1px solid rgba(162, 218, 255, 0.72);
+}
+
+.hud-title-bar::after {
+  bottom: 0;
+  left: 0;
+  border-bottom: 1px solid rgba(162, 218, 255, 0.72);
+  border-left: 1px solid rgba(162, 218, 255, 0.72);
+}
+
+.hud-title-bar .bracket-tl {
+  top: 0;
+  left: 0;
+  border-top: 1px solid rgba(162, 218, 255, 0.72);
+  border-left: 1px solid rgba(162, 218, 255, 0.72);
+}
+
+.hud-title-bar .bracket-br {
+  bottom: 0;
+  right: 0;
+  border-bottom: 1px solid rgba(162, 218, 255, 0.72);
+  border-right: 1px solid rgba(162, 218, 255, 0.72);
+}
+
+/* Digital date digits matching the top-right reference date display */
+.hud-date-digit {
+  background: linear-gradient(180deg, rgba(16, 86, 172, 0.48) 0%, rgba(7, 42, 98, 0.72) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.34);
+  color: #66dcff;
+  text-shadow: 0 0 8px rgba(56, 214, 255, 0.5);
+}
+
+/* Subtle glass panel container used ONLY where the reference has a panel surface (ranking table) */
+.hud-table-surface {
+  background: linear-gradient(180deg, rgba(11, 37, 88, 0.46) 0%, rgba(7, 25, 64, 0.56) 100%);
+  border: 1px solid rgba(56, 152, 255, 0.14);
+}
+
+/* Smooth GPU-safe SVG animations */
+@keyframes beaconBreath {
+  0%, 100% { opacity: 0.78; }
+  50% { opacity: 1; }
+}
+
+@keyframes arcFlow {
+  to { stroke-dashoffset: -42; }
+}
+
+.animate-beacon-soft {
+  animation: beaconBreath 3.2s ease-in-out infinite;
+}
+
+.animate-arc-flow {
+  animation: arcFlow 2.8s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-beacon-soft,
+  .animate-arc-flow {
+    animation: none !important;
+  }
+}
+
+.syria-scroll::-webkit-scrollbar {
+  height: 3px;
+  width: 3px;
+}
+.syria-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.syria-scroll::-webkit-scrollbar-thumb {
+  background: rgba(56, 189, 248, 0.35);
+  border-radius: 2px;
+}

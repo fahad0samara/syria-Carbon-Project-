@@ -1,0 +1,6 @@
+{
+  "name": "مرصد سوريا البيئي الفوري",
+  "description": "لوحة رصد وتحليل فوري لجودة الهواء والبيئة والمنشآت الصناعية والطاقة في محافظات الجمهورية العربية السورية ببيانات حية.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
